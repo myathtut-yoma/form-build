@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\FormController;
 use App\Http\Controllers\v1\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', [LoginController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('create/form', [FormController::class, 'createForm']);
+});
