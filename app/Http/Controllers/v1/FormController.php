@@ -6,6 +6,8 @@ namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\ResponseTrait;
 use App\Http\Requests\CreateFormRequest;
+use App\Http\Requests\SubmitFormRequest;
+use App\Models\Content;
 use App\Models\Form;
 
 class FormController extends Controller
@@ -34,6 +36,20 @@ class FormController extends Controller
     public function getForm($formId)
     {
         $form = Form::findOrFail($formId);
+
+        return $this->dataResponse($form);
+
+    }
+
+    public function formSubmit(SubmitFormRequest $request)
+    {
+        $data = $request->all();
+
+        $form = Content::create([
+            'user_id' => auth()->id(),
+            'form_id' => $data['form_id'],
+            'content_attributes' => $data['attributes'],
+        ]);
 
         return $this->dataResponse($form);
 
