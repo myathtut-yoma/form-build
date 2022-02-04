@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\FormSubmitEvent;
 use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
@@ -20,5 +21,9 @@ class Content extends Model
     protected $casts = [
         'content_attributes' => 'array',
     ];
+
     protected $table = 'contents';
+    protected $dispatchesEvents = [
+        'created' => FormSubmitEvent::class, // Event
+    ];
 }
