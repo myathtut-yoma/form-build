@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('create/form', [FormController::class, 'createForm']);
+    Route::get('/form/{id}', [FormController::class, 'getForm']);
 });

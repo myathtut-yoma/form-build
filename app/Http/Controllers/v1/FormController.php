@@ -31,4 +31,12 @@ class FormController extends Controller
 
     }
 
+    public function getForm($formId)
+    {
+        $form = Form::findOrFail($formId);
+
+        return $this->dataResponse($form);
+
+    }
+
 }
