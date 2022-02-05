@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Events\FormSubmitEvent;
 use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
