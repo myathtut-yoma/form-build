@@ -19,5 +19,6 @@ Route::post('v1/login', [LoginController::class, 'login']);
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
     Route::post('create/form', [FormController::class, 'createForm']);
     Route::get('/form/{id}', [FormController::class, 'getForm']);
+    Route::get('/forms', [FormController::class, 'getAllForm']);
     Route::post('submit/form', [FormController::class, 'formSubmit']);
 });
