@@ -5,7 +5,6 @@ namespace App\Rules;
 use App\Http\Helpers\ResponseTrait;
 use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class PasswordCheck implements Rule

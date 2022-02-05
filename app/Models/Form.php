@@ -23,4 +23,12 @@ class Form extends Model
     ];
     protected $table = 'forms';
 
+    /*
+     *  belong to relation with User
+    */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

@@ -29,16 +29,4 @@ class CreateFormRequest extends FormRequest
             'form_name' => ['required'],
         ];
     }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-
-        ];
-    }
 }

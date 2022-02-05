@@ -7,16 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Helpers\ResponseTrait;
 use App\Http\Requests\CreateFormRequest;
 use App\Http\Requests\SubmitFormRequest;
+use App\Http\Resources\FormResource;
 use App\Models\Content;
 use App\Models\Form;
+use Illuminate\Http\Response;
 
 class FormController extends Controller
 {
     use ResponseTrait;
-
-    public function __construct()
-    {
-    }
 
     public function createForm(CreateFormRequest $request)
     {
@@ -39,6 +37,12 @@ class FormController extends Controller
 
         return $this->dataResponse($form);
 
+    }
+
+    public function getAllForm()
+    {
+
+        return FormResource::collection(Form::with('user')->get())->additional(['message' => 'Get All Forms', 'code' => Response::HTTP_OK]);
     }
 
     public function formSubmit(SubmitFormRequest $request)
