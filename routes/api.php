@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', [LoginController::class, 'login']);
-Route::middleware('auth:sanctum')->group(function () {
+Route::post('v1/login', [LoginController::class, 'login']);
+Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
     Route::post('create/form', [FormController::class, 'createForm']);
     Route::get('/form/{id}', [FormController::class, 'getForm']);
     Route::post('submit/form', [FormController::class, 'formSubmit']);
