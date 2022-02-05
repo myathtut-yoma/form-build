@@ -16,11 +16,6 @@ class FormController extends Controller
 {
     use ResponseTrait;
 
-    public function __construct()
-    {
-        
-    }
-
     public function createForm(CreateFormRequest $request)
     {
         $data = $request->all();

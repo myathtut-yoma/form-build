@@ -12,10 +12,6 @@ class LoginController extends Controller
 {
     use ResponseTrait;
 
-    public function __construct()
-    {
-    }
-
     public function login(LoginRequest $request)
     {
         $user = User::user($request->email)->first();

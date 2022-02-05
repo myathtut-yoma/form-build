@@ -20,11 +20,11 @@ class FormSendMail extends Mailable
         //
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+/**
+ * Build the message.
+ *
+ * @return mixed
+ */
     public function build()
     {
         return $this->subject('Form Submit')
